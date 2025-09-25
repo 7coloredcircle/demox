@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color-Changing Circles</title>
+    <title>دوائر متغيرة الألوان</title>
     <style>
         body {
             display: flex;
@@ -16,7 +16,6 @@
             font-family: sans-serif;
         }
 
-        /* Container for large circles to arrange them side-by-side */
         .large-circles-container {
             display: flex;
             justify-content: center;
@@ -31,29 +30,29 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            /* السطر الجديد لإزالة المربع الأزرق عند الضغط */
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Class for the larger circles */
         .large-circle {
             height: 120px;
             width: 120px;
         }
 
-        /* New colors for the cycle */
         .red {
-            background-color: #dc3545; /* red */
+            background-color: #dc3545;
         }
         .yellow {
-            background-color: #ffc107; /* yellow */
+            background-color: #ffc107;
         }
         .green {
-            background-color: #28a745; /* green */
+            background-color: #28a745;
         }
         .blue {
-            background-color: #007bff; /* blue */
+            background-color: #007bff;
         }
         .purple {
-            background-color: #6f42c4; /* purple */
+            background-color: #6f42c4;
         }
     </style>
 </head>
@@ -70,13 +69,10 @@
     <div class="circle red"></div>
 
     <script>
-        // Select all circles
         const circles = document.querySelectorAll('.circle');
 
-        // Add a "click" event listener to each circle
         circles.forEach(circle => {
             circle.addEventListener('click', () => {
-                // Check the current color and change it to the next color in the sequence
                 if (circle.classList.contains('red')) {
                     circle.classList.remove('red');
                     circle.classList.add('yellow');
