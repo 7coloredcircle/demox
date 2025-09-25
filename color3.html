@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color-Changing Circles</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #000000;
+            font-family: sans-serif;
+        }
+
+        /* Container for large circles to arrange them side-by-side */
+        .large-circles-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .circle {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            margin: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Class for the larger circles */
+        .large-circle {
+            height: 120px;
+            width: 120px;
+        }
+
+        /* New colors for the cycle */
+        .red {
+            background-color: #dc3545; /* red */
+        }
+        .yellow {
+            background-color: #ffc107; /* yellow */
+        }
+        .green {
+            background-color: #28a745; /* green */
+        }
+        .blue {
+            background-color: #007bff; /* blue */
+        }
+        .purple {
+            background-color: #6f42c4; /* purple */
+        }
+    </style>
+</head>
+<body>
+    <div class="large-circles-container">
+        <div class="circle large-circle red"></div>
+        <div class="circle large-circle red"></div>
+    </div>
+
+    <div class="circle red"></div>
+    <div class="circle red"></div>
+    <div class="circle red"></div>
+    <div class="circle red"></div>
+    <div class="circle red"></div>
+
+    <script>
+        // Select all circles
+        const circles = document.querySelectorAll('.circle');
+
+        // Add a "click" event listener to each circle
+        circles.forEach(circle => {
+            circle.addEventListener('click', () => {
+                // Check the current color and change it to the next color in the sequence
+                if (circle.classList.contains('red')) {
+                    circle.classList.remove('red');
+                    circle.classList.add('yellow');
+                } else if (circle.classList.contains('yellow')) {
+                    circle.classList.remove('yellow');
+                    circle.classList.add('green');
+                } else if (circle.classList.contains('green')) {
+                    circle.classList.remove('green');
+                    circle.classList.add('blue');
+                } else if (circle.classList.contains('blue')) {
+                    circle.classList.remove('blue');
+                    circle.classList.add('purple');
+                } else if (circle.classList.contains('purple')) {
+                    circle.classList.remove('purple');
+                    circle.classList.add('red');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
